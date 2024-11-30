@@ -20,25 +20,24 @@ public class S_Tarefa {
         this.r_tarefa = r_tarefa;
     }
 
-    // Listar todas as tarefas
+
     public List<M_Tarefa> listarTarefas() {
         return r_tarefa.findAll();
     }
 
-    // Buscar tarefa por ID
+
     public M_Tarefa buscarTarefaPorId(Long id) {
         Optional<M_Tarefa> tarefa = r_tarefa.findById(id);
-        return tarefa.orElse(null); // Retorna null se a tarefa não for encontrada
+        return tarefa.orElse(null);
     }
 
-    // Salvar ou atualizar tarefa
+
     public void salvarTarefa(M_Tarefa tarefa) {
-        r_tarefa.save(tarefa); // Save irá fazer tanto a inserção quanto a atualização, dependendo da tarefa
+        r_tarefa.save(tarefa);
     }
 
-    // Excluir tarefa
     public void excluirTarefa(Long id) {
-        r_tarefa.deleteById(id); // Deleta a tarefa pelo ID
+        r_tarefa.deleteById(id);
     }
 }
 
