@@ -4,9 +4,12 @@ package senai.br.saep.model;
 import jakarta.persistence.*;
 
 
+import jakarta.persistence.*;
+
 @Entity
-@Table(name = "tarefa")
+@Table(name = "tarefas")
 public class M_Tarefa {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,13 +18,17 @@ public class M_Tarefa {
     private String setor;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
-    private M_Usuario usuario;
-
-    @ManyToOne
-    @JoinColumn(name = "prioridade_id", nullable = false)
+    @JoinColumn(name = "prioridade_id")
     private M_Prioridade prioridade;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private M_Usuario usuario;
+
+    @Column(nullable = false)
+    private String status;
+
+    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -60,6 +67,14 @@ public class M_Tarefa {
 
     public void setPrioridade(M_Prioridade prioridade) {
         this.prioridade = prioridade;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
 
