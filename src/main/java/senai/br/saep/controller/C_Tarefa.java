@@ -69,10 +69,14 @@ public class C_Tarefa {
         tarefa.setUsuario(usuario);
         tarefa.setPrioridade(prioridade);
 
+        // Definir um valor padrão para o status
+        tarefa.setStatus("Pendente");
+
         s_tarefa.salvarTarefa(tarefa);
 
-        return "redirect:/gerirTarefas"; // Redireciona para a página de gerenciamento de tarefas
+        return "redirect:/gerirTarefas/cadastrar"; // Redireciona para a página de gerenciamento de tarefas
     }
+
 
 
     // Alterar o status da tarefa

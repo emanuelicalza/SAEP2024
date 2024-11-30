@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
 @Table(name = "tarefas")
@@ -25,7 +26,7 @@ public class M_Tarefa {
     @JoinColumn(name = "usuario_id")
     private M_Usuario usuario;
 
-    @Column(nullable = false)
+    @NotNull
     private String status;
 
     // Getters e Setters
